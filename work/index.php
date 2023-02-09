@@ -92,6 +92,7 @@ include "class/class.php";
 include "class/invoices.php";
 include "class/companies.php";
 include "class/contacts.php";
+include "class/users.php";
 //connexion à l'api
 if (isset($_SERVER['HTTP_ORIGIN'])) {
         // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
@@ -228,6 +229,24 @@ $router->patch('/contact/{id}',function($id){
 $router->delete('/contact/{id}',function($id){
     $contact = new contacts();
     $contact->delete_contact($id);
+});
+
+//API Affiche tout les utilisateurs
+$router->get('/users',function(){
+    $user = new users();
+    $user->get_users();
+});
+
+//API Affiche un utilisateur précis (avec son id)
+$router->get('/user/{id}',function($id){
+    $user = new users();
+    $user->get_userID($id);
+});
+
+//API Ajouter un utilisateur
+$router->post('/users',function(){
+    $user = new users();
+    $user->post_users();
 });
 
 
