@@ -249,5 +249,15 @@ $router->post('/users',function(){
     $user->post_users();
 });
 
+$router->patch('/user/{id}',function($id){
+    $user = new users();
+    $user->patch_userID($id);
+});
+
+$router->delete('/user/{id}',function($id){
+    $user = new users();
+    $user->delete_userID($id);
+});
+
 
 $router->run();
