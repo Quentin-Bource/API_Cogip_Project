@@ -4,7 +4,7 @@ class invoices extends Dbh
 {
     public function get_invoices()
     {
-        $sql = "SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company FROM invoices
+        $sql = "SELECT invoices.id, ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company, companies.id AS IDCOMPANY FROM invoices
         INNER JOIN companies
         ON invoices.id_company = companies.id
         ORDER BY invoices.create_dat DESC ";
