@@ -27,7 +27,7 @@ class invoices extends Dbh
 
     public function get_invoicesID($id)
     {
-        $sql = "SELECT invoices.id , ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company, companies.tva, companies.country, companies.type_id  FROM invoices
+        $sql = "SELECT invoices.id , ref, invoices.update_dat AS Date_due , invoices.create_dat, companies.name AS Name_company, companies.tva, companies.country, companies.type_id , companies.id  FROM invoices
         INNER JOIN companies
         ON invoices.id_company = companies.id WHERE invoices.id = $id";
         $resultat = $this->connect()->prepare($sql);
