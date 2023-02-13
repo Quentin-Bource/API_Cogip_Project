@@ -9,7 +9,7 @@
 <body>
     <script>
     data = { first_name : "test2", role_id:"2",last_name:"test",email:"test2@test.com",password:"password", create_dat: "2023-02-01",update_dat:"2023-02-01"};
-    let url = 'http://localhost:8001/role/1';
+    let url = 'http://localhost:8001/users';
     let option = {
         method: "GET"/*
         body: JSON.stringify(data),
