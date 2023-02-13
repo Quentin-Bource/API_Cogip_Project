@@ -96,6 +96,10 @@ effet : modifie le contact correspondant à l'id
 
 24) methode : DELETE , terminaison : /user/{id}, effet : supprime l'utilisateur correspondant à l'id
 
+25) methode : GET , terminaison : /roles , effet : affiche tout les roles
+
+26) methode : GET , terminaison : /role/{id} , effet : affoche le role correspondant à l'id
+
 
 */
 /// début du code ///
@@ -105,6 +109,7 @@ include "class/invoices.php";
 include "class/companies.php";
 include "class/contacts.php";
 include "class/users.php";
+include "class/roles.php";
 //connexion à l'api
 if (isset($_SERVER['HTTP_ORIGIN'])) {
         // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
@@ -281,7 +286,16 @@ $router->delete('/user/{id}',function($id){
     $user->delete_userID($id);
 });
 
+//API Afficher tout les roles
+$router->get('/roles',function(){
+    $user = new roles();
+    $user->get_roles();
+});
 
+$router->get('/role/{id}',function($id){
+    $user = new roles();
+    $user->get_roleID($id);
+});
 
 
 $router->run();
