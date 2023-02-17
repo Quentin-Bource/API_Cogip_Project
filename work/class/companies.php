@@ -26,7 +26,7 @@ class companies extends Dbh {
     }
 
     public function get_companiesID($id){
-        $sql="SELECT companies.id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
+        $sql="SELECT companies.id,type_id, companies.name AS Name_company, country, tva, companies.create_dat , companies.update_dat, types.name AS Name_type
         FROM companies 
         INNER JOIN types 
         ON companies.type_id = types.id  WHERE companies.id = $id ";
