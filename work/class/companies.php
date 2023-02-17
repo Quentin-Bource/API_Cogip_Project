@@ -46,7 +46,7 @@ class companies extends Dbh {
         $create_dat = $data['create_dat'];
         $error = false;
 
-        if (!preg_match("/^[a-zA-Z0-9]+$/", $name)) {
+        if (!preg_match("/^[a-zA-Z0-9 ]+$/", $name)) {
             header('Content-Type: application/json');
             echo json_encode(['error'=> 'Le nom ne peut contenir que des lettres et des chiffres']);
             $error = true;

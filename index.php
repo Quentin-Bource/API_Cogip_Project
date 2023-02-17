@@ -8,15 +8,15 @@
 </head>
 <body>
     <script>
-    data = { first_name : "test2", role_id:"2",last_name:"test",email:"test2@test.com",password:"password", create_dat: "2023-02-01",update_dat:"2023-02-01"};
-    let url = 'http://localhost:8001/users';
+    data = { name: "test", type_id:"2",country:"BElgium",tva:"BE5555",create_dat: "2023-02-01",update_dat:"2023-02-01"};
+    let url = 'http://localhost:8001/companies';
     let option = {
-        method: "GET"/*
+        method: "POST",
         body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json",
         },
-      */};
+      };
     fetch(url,option)
     .then((response) => {
       return response.json();
