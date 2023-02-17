@@ -129,7 +129,9 @@ class companies extends Dbh {
         }
     }
     public function delete_companie($id){
-        $sql=" DELETE FROM companies WHERE id = $id ";
+        $sql="DELETE FROM invoices WHERE id_company = $id;
+        DELETE FROM contacts WHERE company_id =  $id;
+        DELETE FROM companies WHERE id =  $id";
         $resultat=$this->connect()->prepare($sql);
         $resultat->execute();
         $donnees=$resultat->fetchAll(PDO::FETCH_ASSOC);
