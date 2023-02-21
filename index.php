@@ -8,8 +8,9 @@
 </head>
 <body>
     <script>
-    data = { name: "test", type_id:"2",country:"BElgium",tva:"BE5555",create_dat: "2023-02-01",update_dat:"2023-02-01"};
-    let url = 'http://localhost:8001/companies';
+    data = { name: "Corentin Corentin ", company_id:"37",email : "corentinmiserque1@gmail.com"
+,phone : "0492029222",create_dat: "2023-02-21T09:22:26.195Z"};
+    let url = 'https://quentin.hugoorickx.tech/contacts';
     let option = {
         method: "POST",
         body: JSON.stringify(data),

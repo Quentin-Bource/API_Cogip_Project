@@ -71,6 +71,18 @@ class companies extends Dbh {
           $create_dat = filter_var($create_dat, FILTER_SANITIZE_STRING);
         }        
         if(!$error){
+            // Vérification si l'entreprise existe déjà
+            $sql = "SELECT * FROM companies WHERE name = :name AND tva = :tva";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([
+                ':name' => $name,
+                ':tva' => $tva
+            ]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($row) {
+                header('Content-Type: application/json');
+                echo json_encode(['error'=> 'Cette compagnie existe déjà dans la base de données.']);
+            } else {
         $sql="INSERT INTO companies (name, type_id, country, tva, create_dat) VALUES (:name, :type_id, :country, :tva, :create_dat)";
         $add=$this->connect()->prepare($sql);
         $add->bindValue(':name', $data["name"]);
@@ -82,6 +94,7 @@ class companies extends Dbh {
         header('Content-Type: application/json');
         echo json_encode(['message' => 'Données reçues avec succès']);
         }
+    }
     }
 
     public function patch_companie($id){
