@@ -54,11 +54,11 @@ class companies extends Dbh {
             header('Content-Type: application/json');
             echo json_encode(['error'=> 'Le nombre ne peut contenir que des chiffres']);
             $error = true;
-        } elseif (!preg_match("/^[a-zA-Z]+$/", $country)) {
+        } elseif (!preg_match("/^[a-zA-Z ]+$/", $country)) {
             header('Content-Type: application/json');
             echo json_encode(['error'=> 'Le pays ne peut contenir que des lettres']);
             $error = true;
-        } elseif (!preg_match("/^[a-zA-Z]{2}[0-9]+$/", $tva)) {
+        } elseif (!preg_match("/^[a-zA-Z ]{2}[0-9 ]+$/", $tva)) {
             header('Content-Type: application/json');
             echo json_encode(['error'=> 'La TVA doit commencer par 2 lettres, suivies de chiffres.']);
             $error = true;
