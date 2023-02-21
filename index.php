@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-    data = { name: "Raviga", type_id:"1",country:"United States",tva:"US456654321",create_dat: "2023-02-21T09:22:26.195Z"};
+    data = { name: "Raviga", type_id:"1",country:"United States",tva:"US456 654 321",create_dat: "2023-02-21T09:22:26.195Z"};
     let url = 'https://quentin.hugoorickx.tech/companies';
     let option = {
         method: "POST",
